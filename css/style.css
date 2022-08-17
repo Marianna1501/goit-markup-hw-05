@@ -187,14 +187,19 @@ p {
   padding: 0;
   text-decoration: none;
 }
+/* section&container */
 
-/* navigation */
-
+.section {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
 .container {
   margin: 0 auto;
   max-width: 1200px;
   padding: 0 15px;
 }
+/* navigation */
+
 .logo {
   text-decoration: none;
   font-family: 'Raleway', sans-serif;
@@ -223,14 +228,19 @@ p {
   line-height: 1;
   letter-spacing: 0.02em;
   margin-left: auto;
+  color: var(--title-text-color);
+  align-content: baseline;
 }
 .navigation-list > li:not(:last-child) {
   margin-right: 50px;
 }
 .navigation-link {
+  display: inline-block;
   padding-top: 32px;
   padding-bottom: 32px;
-  color: var(--title-text-color);
+  color: inherit;
+  line-height: 1;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contact-link {
   display: inline-flex;
@@ -239,11 +249,30 @@ p {
   color: var(--primary-text-color);
   text-align: center;
   line-height: 1;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
+.underline {
+  display: flex;
+  color: var(--accent-2);
+  flex-direction: column;
+}
+.underline::after {
+  content: '';
+  display: flex;
+  min-width: 100%;
+  height: 4px;
+  background-color: var(--accent-2);
+  border-radius: 2px;
+  align-self: center;
+}
+.underline .navigation-link {
+  padding-top: 36px;
+  padding-bottom: 28px;
+}
 .contact-icon {
   margin-right: 0.625em;
   fill: currentColor;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contact-icon:hover,
 .contact-icon:focus {
@@ -251,9 +280,6 @@ p {
 }
 .navigation {
   display: flex;
-  margin: 0 auto;
-  max-width: 1200px;
-  padding: 0 15px;
 }
 .navigation-points {
   display: flex;
@@ -305,7 +331,8 @@ p {
   font-size: 2.75em;
   line-height: 1.26em;
 }
-.board-button {
+
+.btn {
   padding: 0;
   margin: 0;
   font-size: 1em;
@@ -317,18 +344,18 @@ p {
   cursor: pointer;
   border: none;
 }
-.board-button {
-  min-height: 50px;
+.btn.board-button {
   min-width: 200px;
-  padding: 10px 32px;
+  min-height: 50px;
+  background-color: var(--background-col-4);
+  color: var(--accent-1);
   letter-spacing: 0.06em;
   font-weight: 700;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  background-color: var(--accent-2);
-  color: var(--accent-1);
 }
-.board-button:hover,
-.board-button:focus {
+
+.btn.board-button:hover,
+.btn.board-button:focus {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
@@ -359,7 +386,6 @@ p {
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
 }
-
 .button-close {
   position: absolute;
   top: 8px;
@@ -375,6 +401,10 @@ p {
   fill: currentColor;
 }
 
+/* .close-icon {
+  fill: currentColor;
+} */
+
 /* .button-close img { 
   display: inline-flex;
   justify-content: center;
@@ -383,10 +413,10 @@ p {
 
 /* structure */
 
-.section {
-  padding-top: 5.875em;
-  padding-bottom: 5.875em;
+.structure {
+  padding-top: 94px;
 }
+
 .heading {
   display: none;
 }
@@ -449,6 +479,7 @@ p {
   position: absolute;
   left: 0;
   bottom: 0;
+  margin-bottom: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -522,6 +553,7 @@ p {
   min-height: 44px;
   border-radius: 50%;
   color: var(--social-bgc);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .networks-item:hover,
 .networks-item:focus {
@@ -558,6 +590,7 @@ p {
   border: 1px solid var(--social-bgc);
   border-radius: 4px;
   color: var(--social-bgc);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clients-item:hover,
 .clients-item:focus {
@@ -648,21 +681,24 @@ p {
   padding-bottom: 5.875em;
 }
 /* buttons */
-.board-button.btn-style {
+
+.btn-style {
   background-color: var(--background-col-2);
   color: var(--title-text-color);
   letter-spacing: 0.03em;
   font-weight: 500;
   padding: 6px 22px;
 }
-.board-button.btn-style:focus,
-.board-button.btn-style:hover {
+
+.btn-style:focus,
+.btn-style:hover {
   background-color: var(--background-col-4);
   color: var(--accent-1);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
 }
+
 /* foundation */
 
 .filter-list {
@@ -687,7 +723,7 @@ p {
   width: 100%;
   height: 100%;
   padding: 63px 24px;
-  background-color: var(--bacground-hidden-text);
+  background-color: rgba(33, 150, 243, 0.9);
   color: var(--accent-1);
   font-weight: 400;
   font-size: 1.2em;
